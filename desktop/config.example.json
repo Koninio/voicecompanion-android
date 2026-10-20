@@ -1,0 +1,52 @@
+{
+  "server": { "port": 8765 },
+  "llm": {
+    "server_exe": "bin/llama/llama-server.exe",
+    "model_path": "models/gemma-4-12b-uncensored-Q4_K_M.gguf",
+    "external_url": null,
+    "port": 8081,
+    "n_gpu_layers": null,
+    "ctx_size": 8192,
+    "history_turns": 20,
+    "n_cpu_moe": null,
+    "extra_args": ["--flash-attn", "on"]
+  },
+  "stt": {
+    "model": "large-v3-turbo",
+    "model_dir": "models/whisper",
+    "device": "auto",
+    "compute_type": "auto",
+    "language": "ko",
+    "beam_size": 1
+  },
+  "vad": {
+    "threshold": 0.5,
+    "barge_in": true,
+    "barge_in_threshold": 0.8,
+    "end_silence_ms": 1000,
+    "min_speech_ms": 250,
+    "preroll_ms": 300
+  },
+  "tts": {
+    "mode": "cloud",
+    "sample_rate": 44100,
+    "emotion_tags": true,
+    "cloud": {
+      "api_key": "",
+      "model": "drama-3",
+      "transport": "websocket",
+      "latency": "low",
+      "base_url": "https://api.fish.audio"
+    },
+    "local": {
+      "url": "http://127.0.0.1:8080"
+    }
+  },
+  "personas_voice": {
+    "romantic": { "cloud_reference_id": "", "local_reference_id": "romantic" },
+    "unhinged": { "cloud_reference_id": "", "local_reference_id": "unhinged" },
+    "sarcastic": { "cloud_reference_id": "", "local_reference_id": "sarcastic" }
+  },
+  "audio": { "input_device": null, "output_device": null },
+  "ui": { "default_persona": "romantic", "speak_replies": true }
+}
